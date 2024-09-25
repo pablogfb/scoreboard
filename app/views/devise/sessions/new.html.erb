@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center">
+<h2 class="text-2xl my-10">Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs flex flex-col">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "block mb-2 text-sm font-medium text-gray-900 mr-2 bg-teal-100"} %>
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password", class: "block mb-2 text-sm font-medium text-gray-900 mr-2 bg-teal-100" } %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+
+    <%= f.button :submit, "Log in", class: "bg-teal-300 rounded-md p-2 mr-2" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>

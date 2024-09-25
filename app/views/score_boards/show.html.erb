@@ -13,11 +13,9 @@
               data: { turbo_frame: dom_id(Score.new) } %>
   </div>
       <%= turbo_frame_tag Score.new %>
-      <%= turbo_frame_tag "scores" do %>
-        <div class="flex flex-wrap">
+        <%= turbo_frame_tag "scores", class:"flex flex-wrap justify-ceter" do %>
           <%= render @score_board.scores.ordered %>
-        </div>
-      <% end %>
+        <% end %>
   <div class="flex h-auto justify-between p-3 mb-4 content-center border-b-2 border-teal-600">
     <h1 class="text-2xl">
       Users
@@ -28,10 +26,8 @@
               data: { turbo_frame: "new_user" } %>
   </div>
   <%= turbo_frame_tag "users", @score_board do %>
-    <div class="flex flex-col">
-      <%= turbo_frame_tag "new_user" %>
-      <%= render @score_board.users %>
-    <div>
+    <%= turbo_frame_tag "new_user", class:"flex flex-col" %>
+    <%= render @score_board.users %>
   <% end %>
   </div>
 </main>

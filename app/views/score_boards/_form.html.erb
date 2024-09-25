@@ -1,4 +1,4 @@
-<%= simple_form_for score_board, html: { class: "form flex justify-between" } do |f| %>
+<%= simple_form_for score_board, html: { class: "form flex flex-col sm:flex-row justify-between items-center mb-4" } do |f| %>
   <% if score_board.errors.any? %>
     <div class="error-message">
       <%= score_board.errors.full_messages.to_sentence.capitalize %>
