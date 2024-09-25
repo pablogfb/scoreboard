@@ -1,0 +1,11 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to ScoreBoards"), score_boards_path %>
+
+  <div class="header">
+    <h1>Add User</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_user" do %>
+    <%= render "new_user_form", score_board: @score_board %>
+  <% end %>
+</main>

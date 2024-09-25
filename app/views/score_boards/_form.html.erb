@@ -1,0 +1,13 @@
+<%= simple_form_for score_board, html: { class: "form flex justify-between" } do |f| %>
+  <% if score_board.errors.any? %>
+    <div class="error-message">
+      <%= score_board.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :name, input_html: { class: "block mb-2 text-sm font-medium text-gray-900 mr-2 bg-teal-100", autofocus: true }, label: false, placeholder: "name" %>
+  <div class="flex">
+    <%= link_to "Cancel", score_boards_path, class: "bg-teal-300 rounded-md p-2 mr-2" %>
+    <%= f.submit class: "bg-teal-300 rounded-md p-2 mr-2" %>
+  </div>
+<% end %>

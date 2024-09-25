@@ -1,0 +1,31 @@
+<%= turbo_stream_from score %>
+
+<%= turbo_frame_tag score do %>
+  <div class="m-2 p-6 bg-teal-100 border border-gray-200 rounded-lg shadow flex flex-col items-center content-center">
+    <p class="text-xl lg:basis-1/5 mb-2">
+      <%= score.name %>
+    </p>
+      <p class="text-4xl mx-4 p-2 bg-teal-100 rounded-md">
+        <%= score.value %>
+      </p>
+    <div class="flex items-center mb-2">
+            <%= button_to "+",
+                      operation_score_board_score_path(id: score.id, score_board_id: score.score_board.id, value: "1"),
+                      method: :post,
+                      class: "bg-teal-300 rounded-md p-2 w-10 mr-2" %>
+        <%= button_to "-",
+                      operation_score_board_score_path(id: score.id, score_board_id: score.score_board.id, value: "-1"),
+                      method: :post,
+                      class: "bg-teal-300 rounded-md p-2 w-10 mr-2" %>
+    </div>
+    <div class="flex">
+      <%= link_to "Edit",
+                  edit_score_board_score_path(id: score.id, score_board_id: score.score_board.id),
+                  class: "bg-teal-300 rounded-md p-2 mr-2" %>
+      <%= button_to "Delete",
+                    score_board_score_path(id: score.id, score_board_id: score.score_board.id),
+                    method: :delete,
+                    class: "bg-teal-300 rounded-md p-2" %>
+    </div>
+  </div>
+<% end %>

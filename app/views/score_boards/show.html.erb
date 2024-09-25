@@ -1,0 +1,37 @@
+<%= turbo_stream_from @score_board, "scores" %>
+
+<main class="flex flex-col items-center mt-10">
+  <div class="lg:w-4/6">
+  <%= link_to sanitize("&larr; Back to Score Boards"), score_boards_path, class: "self-start" %>
+  <div class="flex h-auto justify-between p-3 mb-4 content-center border-b-2 border-teal-600">
+    <h1 class="text-2xl">
+      <%= @score_board.name %>
+    </h1>
+    <%= link_to "New Score",
+              new_score_board_score_path(@score_board),
+              class: "bg-teal-500 rounded-md p-2 text-white",
+              data: { turbo_frame: dom_id(Score.new) } %>
+  </div>
+      <%= turbo_frame_tag Score.new %>
+      <%= turbo_frame_tag "scores" do %>
+        <div class="flex flex-wrap">
+          <%= render @score_board.scores.ordered %>
+        </div>
+      <% end %>
+  <div class="flex h-auto justify-between p-3 mb-4 content-center border-b-2 border-teal-600">
+    <h1 class="text-2xl">
+      Users
+    </h1>
+    <%= link_to "New User",
+              new_user_score_board_path(@score_board),
+              class: "bg-teal-500 rounded-md p-2 text-white",
+              data: { turbo_frame: "new_user" } %>
+  </div>
+  <%= turbo_frame_tag "users", @score_board do %>
+    <div class="flex flex-col">
+      <%= turbo_frame_tag "new_user" %>
+      <%= render @score_board.users %>
+    <div>
+  <% end %>
+  </div>
+</main>

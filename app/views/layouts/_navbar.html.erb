@@ -1,0 +1,18 @@
+<header class="bg-teal-500 w-100 flex w-100 p-3 font-sans text-white items-center ">
+  <% if user_signed_in? %>
+    <div class="grow font-medium text-lg ">
+      Scoreboard
+    </div>
+    <div class="mr-3 font-medium">
+      <%= current_user.name %>
+    </div>
+    <%= button_to "Sign out",
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: "bg-black rounded-md p-2" %>
+  <% else %>
+    <%= link_to "Sign in",
+                new_user_session_path,
+                class: "bg-black rounded-md p-2" %>
+  <% end %>
+</header>

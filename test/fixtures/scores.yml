@@ -1,0 +1,11 @@
+first:
+  score_board: scoreboard_1
+  name: First score
+
+second:
+  score_board: scoreboard_1
+  name: Second score
+
+third:
+  score_board: scoreboard_2
+  name: Third score

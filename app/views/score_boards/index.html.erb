@@ -1,0 +1,18 @@
+<%= turbo_stream_from current_user, "score_boards" %>
+
+<main class="flex flex-col items-center mt-10">
+  <div class="lg:w-4/6">
+    <div class="flex h-auto justify-between p-3 mb-4 content-center border-b-2 border-teal-600">
+      <h1 class="text-2xl">Score Boards List</h1>
+      <%= link_to "New Score Board",
+                  new_score_board_path,
+                  class: "bg-teal-500 rounded-md p-2 text-white",
+                  data: { turbo_frame: dom_id(ScoreBoard.new) } %>
+    </div>
+
+    <%= turbo_frame_tag ScoreBoard.new %>
+    <%= turbo_frame_tag "score_boards" do %>
+      <%= render @score_boards %>
+    <% end %>
+  </div>
+</main>

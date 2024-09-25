@@ -1,0 +1,10 @@
+<main class="flex mt-10 flex-col items-center gap-x-12 justify-between h-48">
+  <h1 class="text-4xl">Score Boards</h1>
+  <p class="">A blazing fast Scoreboards</p>
+
+  <% if user_signed_in? %>
+    <%= link_to "View Score Boards", score_boards_path, class: "bg-black rounded-md p-2 text-white" %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "bg-black rounded-md p-2 text-white" %>
+  <% end %>
+</main>
