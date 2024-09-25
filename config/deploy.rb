@@ -6,13 +6,13 @@ set :repo_url, "git@github.com:pablogfb/scoreboard.git"
 set :branch, :main
 set :deploy_to, "/home/deploy/scoreboard"
 set :pty, true
-set :linked_files, %w[config/database.yml config/application.yml]
+set :linked_files, %w[config/database.yml config/credentials/production.key]
 set :linked_dirs, %w[bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads]
 set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_ruby_version, "ruby-3.1.3"
 set :rvm_gemset, "sb"
-set :rvm_custom_path, '/usr/share/rvm'
+set :rvm_custom_path, "/usr/share/rvm"
 
 set :puma_rackup, -> { File.join(current_path, "config.ru") }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
