@@ -50,7 +50,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
   gem "capistrano"
-  gem "capistrano3-puma"
+  gem "capistrano3-puma", "6.0.0.beta.1"
   gem "capistrano-rails", require: false
   gem "capistrano-bundler", require: false
   gem "capistrano-rvm"
@@ -61,7 +61,7 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
 end
 
 group :test do
