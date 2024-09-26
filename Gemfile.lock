@@ -353,7 +353,6 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails (= 2.7.6)
   turbo-rails (~> 1.0)
-  tzinfo-data
   web-console
 
 BUNDLED WITH
