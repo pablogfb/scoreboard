@@ -117,9 +117,6 @@ GEM
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
     date (3.3.4)
-    debug (1.9.2)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -337,7 +334,6 @@ DEPENDENCIES
   capistrano3-puma (= 6.0.0.beta.1)
   capybara
   cssbundling-rails
-  debug
   devise (~> 4.9.4)
   error_highlight (>= 0.4.0)
   jbuilder
