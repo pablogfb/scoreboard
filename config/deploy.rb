@@ -10,7 +10,7 @@ set :linked_files, %w[config/database.yml config/credentials/production.key]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads]
 set :keep_releases, 5
 set :rvm_type, :user
-set :rvm_ruby_version, "ruby-3.1.3"
+set :rvm_ruby_string, "3.1.3@sb"
 set :rvm_gemset, "sb"
 set :rvm_custom_path, "/usr/share/rvm"
 
