@@ -1,5 +1,6 @@
 class ScoreBoardsController < ApplicationController
   before_action :set_score_board, only: [ :show, :edit, :update, :destroy, :new_user, :add_user, :delete_user ]
+  respond_to :html, :turbo_stream
 
 
   def index
