@@ -1,0 +1,18 @@
+<%= simple_form_for [score_board, score], html: {method: "PATCH", class: "" } do |f| %>
+  <% if score.errors.any? %>
+    <div class="error-message">
+      <%= score.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+<div class="flex justify-between flex-col items-center mb-4">
+  <div class="flex flex-col">
+  <%= f.input :name, placeholder: 'name', input_html: { class: "block mb-2 text-sm font-medium text-gray-900 mr-2 bg-teal-100", autofocus: true }, label: false %>
+  <%= f.input :value, input_html: { class: "block mb-2 text-sm font-medium text-gray-900 bg-teal-100"  }, label: false %>
+  </div>
+   <div class="flex">
+      <%= f.submit class: "bg-teal-300 rounded-md p-2 mr-2" %>
+      <%= link_to "Cancel", score_board_path(@score_board), class: "bg-red-100 rounded-md p-2" %>
+   </div>
+</div>
+<% end %>

@@ -32,7 +32,7 @@ class ScoresController < ApplicationController
 
   def update
     if @score.update(score_params)
-      redirect_to scores_path, notice: "ScoreBoard was successfully updated."
+      redirect_to score_board_path(@score_board), notice: "ScoreBoard was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

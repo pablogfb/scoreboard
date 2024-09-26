@@ -1,0 +1,11 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to scoreboard"), score_board_path(@score_board) %>
+
+  <div class="header">
+    <h1>Edit Score</h1>
+  </div>
+
+  <%= turbo_frame_tag @score do %>
+    <%= render "form_edit", score_board: @score_board, score: @score %>
+  <% end %>
+</main>
