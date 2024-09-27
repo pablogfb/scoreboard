@@ -26,8 +26,8 @@
               data: { turbo_frame: "new_user" } %>
   </div>
   <%= turbo_frame_tag "users", @score_board do %>
-    <%= turbo_frame_tag "new_user", class:"flex flex-col" %>
     <%= render @score_board.users %>
+    <%= turbo_frame_tag "new_user", class:"flex flex-col" %>
   <% end %>
   </div>
 </main>

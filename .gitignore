@@ -43,3 +43,4 @@
 config/deploy/production.rb
 
 /config/credentials/production.key
+config/google_aut.json

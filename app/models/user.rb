@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :validatable, :registerable
+  devise :database_authenticatable, :validatable, :registerable, :recoverable
 
   has_and_belongs_to_many :score_boards, dependent: :destroy, join_table: "users_score_boards"
 
