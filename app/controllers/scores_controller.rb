@@ -65,8 +65,6 @@ class ScoresController < ApplicationController
   end
 
   def set_score
-    # We must use current_company.quotes here instead of Quote
-    # for security reasons
     @score = @score_board.scores.find(params[:id])
   end
 
