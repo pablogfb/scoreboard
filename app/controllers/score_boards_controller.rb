@@ -4,7 +4,7 @@ class ScoreBoardsController < ApplicationController
 
 
   def index
-    @score_boards = current_user.score_boards.ordered
+    @score_boards = current_http_user.score_boards.ordered
   end
 
   def show
@@ -16,11 +16,12 @@ class ScoreBoardsController < ApplicationController
 
   def create
     @score_board = ScoreBoard.new(score_board_params)
-    @score_board.users = [ current_user ]
+    @score_board.users = [ current_http_user ]
     if @score_board.save
       respond_to do |format|
         format.html { redirect_to score_boards_path, notice: "ScoreBoard was successfully created." }
         format.turbo_stream
+        format.json { render json: { score_board: @score_board } }
       end
     else
       render :new, status: :unprocessable_entity
@@ -61,7 +62,7 @@ class ScoreBoardsController < ApplicationController
 
   def delete_user
     @user_email = params[:email]
-    @score_board.users = @score_board.users.where.not(email: @user_email) unless @score_board.users.size <= 1 || current_user.email == @user_email
+    @score_board.users = @score_board.users.where.not(email: @user_email) unless @score_board.users.size <= 1 || current_http_user.email == @user_email
     if @score_board.save
       respond_to do |format|
         format.html { redirect_to score_boards_path, notice: "Score Board was successfully Updated." }
@@ -73,9 +74,7 @@ class ScoreBoardsController < ApplicationController
   private
 
   def set_score_board
-    # We must use current_company.quotes here instead of Quote
-    # for security reasons
-    @score_board = current_user.score_boards.find(params[:id])
+    @score_board = current_http_user.score_boards.find(params[:id])
   end
 
   def score_board_params

@@ -2,9 +2,9 @@
   <h1 class="text-4xl">Score Boards</h1>
   <p class="">A blazing fast Scoreboards</p>
 
-  <% if user_signed_in? %>
+  <% if http_user_signed_in? %>
     <%= link_to "View Score Boards", score_boards_path, class: "bg-black rounded-md p-2 text-white" %>
   <% else %>
-    <%= link_to "Log in", new_user_session_path, class: "bg-black rounded-md p-2 text-white" %>
+    <%= link_to "Log in", new_http_user_session_path, class: "bg-black rounded-md p-2 text-white" %>
   <% end %>
 </main>

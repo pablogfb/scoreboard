@@ -1,18 +1,19 @@
 <header class="bg-teal-500 w-100 flex w-100 p-3 font-sans text-white items-center ">
-  <% if user_signed_in? %>
+  <% if http_user_signed_in? %>
     <div class="grow font-medium text-lg ">
       Scoreboard
     </div>
     <div class="mr-3 font-medium">
-      <%= current_user.name %>
+      <%= current_http_user.name %>
     </div>
     <%= button_to "Sign out",
-                  destroy_user_session_path,
+                  destroy_http_user_session_path,
                   method: :delete,
-                  class: "bg-black rounded-md p-2" %>
+                  class: "bg-black rounded-md p-2",
+                  form: { data: { turbo: false } } %>
   <% else %>
     <%= link_to "Sign up",
-                new_user_registration_path,
+                new_http_user_registration_path,
                 class: "rounded-md p-2" %>
   <% end %>
 </header>

@@ -61,7 +61,7 @@ class ScoresController < ApplicationController
   private
 
   def set_score_board
-    @score_board = current_user.score_boards.find(params[:score_board_id])
+    @score_board = current_http_user.score_boards.find(params[:score_board_id])
   end
 
   def set_score
